@@ -1,4 +1,12 @@
-require 'sinatra/base'
+require "bundler"
+Bundler.require
 
-app = Sinatra.new{ get('/') { "Hello, world!" } }
-app.run!
+module Sinatramin
+  class App < Sinatra::Base
+    get "/" do
+      "Hello, world!"
+    end
+  end
+end
+
+run Sinatramin::App.run!
